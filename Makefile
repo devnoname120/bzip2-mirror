@@ -15,9 +15,9 @@
 SHELL=/bin/sh
 
 # To assist in cross-compiling
-CC=gcc
-AR=ar
-RANLIB=ranlib
+CC=arm-vita-eabi-gcc
+AR=arm-vita-eabi-ar
+RANLIB=arm-vita-eabi-ranlib
 LDFLAGS=
 
 BIGFILES=-D_FILE_OFFSET_BITS=64
@@ -68,6 +68,10 @@ test: bzip2
 	cmp sample2.tst sample2.ref
 	cmp sample3.tst sample3.ref
 	@cat words3
+
+installlib: libbz2.a
+	cp -f libbz2.a $(PREFIX)/lib
+	cp -f bzlib.h $(PREFIX)/include
 
 install: bzip2 bzip2recover
 	if ( test ! -d $(PREFIX)/bin ) ; then mkdir -p $(PREFIX)/bin ; fi
