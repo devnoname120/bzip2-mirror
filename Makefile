@@ -70,8 +70,8 @@ test: bzip2
 	@cat words3
 
 installlib: libbz2.a
-	cp -f libbz2.a $(PREFIX)/lib
-	cp -f bzlib.h $(PREFIX)/include
+	cp -f libbz2.a $(PREFIX)/lib/
+	cp -f bzlib.h $(PREFIX)/include/
 
 install: bzip2 bzip2recover
 	if ( test ! -d $(PREFIX)/bin ) ; then mkdir -p $(PREFIX)/bin ; fi
